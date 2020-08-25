@@ -6,9 +6,7 @@ Al día de hoy y con los continuos avances en cuanto a desarrollo web, todas la 
 
 Pues bien, queda a nuestro cargo completar la construcción de una versión totalmente libre para quien quiera probarlo.
 
-<iframe width="865" height="487" src="https://www.youtube.com/embed/whXHjzHkEtg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-
+[![Asteroid Video](https://img.youtube.com/vi/whXHjzHkEtg/0.jpg)](https://www.youtube.com/watch?v=whXHjzHkEtg)
 
 En este desafió usaremos algunos conceptos muy importante para la programación tales como:
 
