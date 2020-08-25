@@ -8,6 +8,8 @@ Pues bien, queda a nuestro cargo completar la construcción de una versión tota
 
 <iframe width="865" height="487" src="https://www.youtube.com/embed/whXHjzHkEtg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+
+
 En este desafió usaremos algunos conceptos muy importante para la programación tales como:
 
 - Funciones.
