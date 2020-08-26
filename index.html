@@ -6,26 +6,29 @@ Source: https://github.com/everblind/js-playground/tree/master/canvas-asteroids
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="./img/icon.svg" type="image/x-icon">
-  
-  <title>AsteroidJS</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./img/icon.svg" type="image/x-icon" />
 
-  <script src="./main.js"></script>
-  <script src="./src/script.js"></script>
-  <link rel="stylesheet" href="./src/style.css">
-</head>
-<body>
-  
-</body>
+    <title>AsteroidJS</title>
+
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body>
+    <div id="info">
+      <h1>AsteroidsJS</h1>
+      <p>
+        Usar las teclas [A][S][W][D] o [&larr;][&uarr;][&darr;][&rarr;] para
+        moverse
+      </p>
+      <p>Usar la tecla [ESPACIO] o [K] para disparar</p>
+      <p id="cartel-puntos">Puntos hasta el momento: 0</p>
+    </div>
+
+    <canvas id="canvas"></canvas>
+
+    <script src="./main.js"></script>
+    <script src="./src/util.js"></script>
+  </body>
 </html>
-
-<div id="info">
-  <h1>AsteroidsJS</h1>
-  <p>Usar las teclas [A][S][W][D] o [&larr;][&uarr;][&darr;][&rarr;] para moverse</p>
-  <p>Usar la tecla [ESPACIO] o [K] para disparar</p>
-</div>
-
-<canvas id="canvas"></canvas>

@@ -53,6 +53,113 @@ Por ejemplo, para el TP 3 del grupo 5 sería: 2020-AP3-G05-TP03
 
 ![](./img/meme-utils.jpg)
 
-# Herramientas utilizadas
+## Herramientas utilizadas
 
 Para la construcción del juego no estamos utilizando P5, sino JavaScript Puro, por lo que gran cantidad de operaciones están resueltas y disponibles para continuar con el desarrollo.
+
+- Procedimientos disponibles para controlar la nave.
+  - `disparar()`
+  - `girarALaIzquierda()`
+  - `girarALaDerecha()`
+  - `avanzar()`
+  - `detener()`
+  - `posicionEnXDeLaNave()`
+  - `posicionEnYDeLaNave()`
+  - `colocarALaNaveEnX(posicion)`
+  - `colocarALaNaveEnY(posicion)`
+- Procedimientos y/o funciones para gestionar balas.
+  - `posicionEnXDeLaBala(bala)`: recibe una bala y devuelve su posición en el eje `X`.
+  - `posicionEnYDeLaBala(bala)`: recibe una bala y devuelve su posición en el eje `Y`.
+  - `reutlizarBala(bala)`: recibe una bala y la deja lista para ser reutilizada por la nave.
+- Funciones para colisiones.
+  - `chocaron(a, b)`: recibe dos OBJETOS (que pueden balas, naves o asteroides) y devuelve `true` si estos colisionaron. 
+  - `asteroideIEsimo(idAsteroide)`: recibe el id de un asteroide y devuelve el OBJETO asteroide correspondiente.
+  - `balaIEsima(idBala)`: recibe el id de una bala y devuelve el OBJETO bala correspondiente
+  - `destruirAsteroide(asteroide)`
+- Procedimientos para actualizar los puntos
+  - `actualizarCartelPuntos()`
+
+## Resuelva
+
+> Siempre utilice los comentario y la identación adecuada.
+
+1. Queremos controlar la nave principal. Para esto tendremos que utilizar los siguientes datos
+
+   - `keyCode`: es un código numérico que se le asigna a cada tecla del teclado para identificarlo y que las aplicaciones puedan detectar cuando y cual tecla fue presionada o soltada.
+   - `keyLeft`: es una variable global que debe valer `true` si las teclas [A] o [&larr;] fueron presionadas, y `false` en otros casos
+   - `keyRight`: es una variable global que debe valer `true` si las teclas [D] o [&rarr;] fueron presionadas, y `false` en otros casos
+   - `keyUp`: es una variable global que debe valer `true` si las teclas [W] o [&uarr;] fueron presionadas, y `false` en otros casos
+   - `keySpace`: es una variable global que debe valer `true` si las teclas [ESPACIO] o [K] fueron presionadas, y `false` en otros casos
+
+   Deben crear dos procedimientos:
+
+   - `teclasPresionadas`: debe recibir a `keyCode` como parámetro y asignar `true` a las variables `keyLeft, keyRight, keyUp, keySpace` de acuerdo al valor de `keyCode` recibido. 
+   - `teclasSoltadas`: debe recibir a `keyCode` como parámetro y asignar `false` a las variables `keyLeft, keyRight, keyUp, keySpace` de acuerdo al valor de `keyCode` recibido. 
+
+   En ambos casos, en cuanto se detecte un código, el procedimiento debe asignar el valor correspondiente y terminar.
+
+   Estos son los códigos de las teclas:
+
+   | Tecla   | Código |
+   | ------- | ------ |
+   | `A`     | 65     |
+   | &larr;  | 37     |
+   | `W`     | 87     |
+   | &uarr;  | 38     |
+   | `D`     | 68     |
+   | &rarr;  | 39     |
+   | `K`     | 75     |
+   | ESPACIO | 32     |
+
+2. Ahora que ya sabes que variables globales sirven para controlar la nave, tenes que crear el procedimiento `controlarLaNave()` que, obviamente, accione los movimientos de la nave según el valor de `keyUp, keyRight, keyLeft, keySpace`
+
+   - AYUDA: cuando la variable global `keyUp` valga `true`, que debería hacer la nave? y cuando valga `false`?
+
+3. Pero, un momento, la nave se va de la ventana y desaparece de nuestra vista. Esto no puede ser!!! Es importante dar la impresión de que el universo es grande y para eso debemos crear un procedimiento llamado `agujeroNegro()` que:
+
+   - Cuando la nave desaparezca por la izquierda, reaparezca en el lado derecho.
+   - Cuando la nave desaparezca por la derecha, reaparezca en el lado izquierdo.
+   - Cuando la nave desaparezca por abajo, reaparezca arriba.
+   - Cuando la nave desaparezca por arriba, reaparezca abajo.
+
+   Algunos datos que debemos usar:
+
+   - Existe una variable global llamada `screenWidth` que representa el ancho de la ventana. 
+   - Existe una variable global llamada `screenHeight` que representa el alto de la ventana.
+
+   Ahora si, algunas ayudas:
+
+   - AYUDA: Cual es la posición en el eje `X` de la nave cuando desaparece por el lado derecho? y cuando se desaparece por el lado izquierdo?
+
+4. Una vez que podemos empezar a disparar, lo mas probable es que las balas se agoten o que la memoria ram se nos termine por la cantidad de balas que creamos (nada es gratis). Una solución posible es recargar nuestras municiones con las balas que se van de la ventana, porque después de todo, no se ven. Entonces, hay que crear un procedimiento llamado `recargar(bala)` que reciba por parámetro una bala y dependiendo de su posición, reutilizarla!!!
+
+5. Bien, ya tenemos balas y tenemos asteroides, ahora nos falta programar las colisiones y sus consecuencias. Para identificar a cada munición y asteroide existente en el juego, se les asigno un numero que funciona como identificador y para cada uno de estos. Pues bien, crear un procedimiento llamado `detectarColisionBalaAsteroide(idBala, idAsteroide)` que recibe como parámetro el identificador de un asteroide y el identificador de una bala en particular. En el caso que que los OBJETOS bala y asteroide correspondientes a esos identificadores hayan chocado…. pues bien, ya podrás imaginar lo que tiene que pasar.
+
+   - AYUDA: Es necesario crear una variable para almacenar los OBJETOS bala y asteroide, pero debe ser local o global?
+
+   - AYUDA: No te olvides de reutilizar las balas.
+
+6. Por otro lado, cuando finalmente destruimos un asteroide, es importante sumar una cierta cantidad de puntos. Para eso debemos usar una variable global `points` e incrementarla según la cantidad de puntos que consideremos merecer por destruir un asteroide que casi destruye la tierra. 
+
+   - AYUDA: no te olvides de ejecutar la función `actualizarCartelPuntos()`.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

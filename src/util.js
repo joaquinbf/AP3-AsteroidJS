@@ -331,6 +331,8 @@ var screenWidth;
 var screenHeight;
 var doublePI = Math.PI * 2;
 
+var points = 0;
+
 //game vars
 
 var ship;
@@ -394,84 +396,16 @@ window.onresize = function () {
 
 function keyboardInit() {
   window.onkeydown = function (e) {
-    switch (e.keyCode) {
-      //key A or LEFT
-      case 65:
-      case 37:
-        keyLeft = true;
-
-        break;
-
-      //key W or UP
-      case 87:
-      case 38:
-        keyUp = true;
-
-        break;
-
-      //key D or RIGHT
-      case 68:
-      case 39:
-        keyRight = true;
-
-        break;
-
-      //key S or DOWN
-      case 83:
-      case 40:
-        keyDown = true;
-
-        break;
-
-      //key Space
-      case 32:
-      case 75:
-        keySpace = true;
-
-        break;
+    if (typeof teclasPresionadas === "function") {
+      teclasPresionadas(e.keyCode);
     }
-
     e.preventDefault();
   };
 
   window.onkeyup = function (e) {
-    switch (e.keyCode) {
-      //key A or LEFT
-      case 65:
-      case 37:
-        keyLeft = false;
-
-        break;
-
-      //key W or UP
-      case 87:
-      case 38:
-        keyUp = false;
-
-        break;
-
-      //key D or RIGHT
-      case 68:
-      case 39:
-        keyRight = false;
-
-        break;
-
-      //key S or DOWN
-      case 83:
-      case 40:
-        keyDown = false;
-
-        break;
-
-      //key Space
-      case 75:
-      case 32:
-        keySpace = false;
-
-        break;
+    if (typeof teclasSoltadas === "function") {
+      teclasSoltadas(e.keyCode);
     }
-
     e.preventDefault();
   };
 }
@@ -508,30 +442,62 @@ function loop() {
   getAnimationFrame(loop);
 }
 
+/* procedimientos para el problema 2 y 3 ----------------------------------- */
+
+function disparar() {
+  ship.shoot();
+}
+
+function girarALaIzquierda() {
+  ship.angle -= 0.1;
+}
+
+function girarALaDerecha() {
+  ship.angle += 0.1;
+}
+
+function avanzar() {
+  ship.thrust.setLength(0.1);
+  ship.thrust.setAngle(ship.angle);
+
+  generateThrustParticle();
+}
+
+function detener() {
+  ship.vel.mul(0.94);
+  ship.thrust.setLength(0);
+}
+
+function posicionEnXDeLaNave() {
+  return ship.pos.getX();
+}
+
+function posicionEnYDeLaNave() {
+  return ship.pos.getY();
+}
+
+function colocarALaNaveEnX(posicion) {
+  ship.pos.setX(posicion);
+}
+
+function colocarALaNaveEnY(posicion) {
+  ship.pos.setY(posicion);
+}
+
+/* Punto de aplicacion de las soluciones de los problemas 2 y 3------------- */
+
 function updateShip() {
   ship.update();
 
   if (ship.idle) return;
 
-  if (keySpace) ship.shoot();
-  if (keyLeft) ship.angle -= 0.1;
-  if (keyRight) ship.angle += 0.1;
-
-  if (keyUp) {
-    ship.thrust.setLength(0.1);
-    ship.thrust.setAngle(ship.angle);
-
-    generateThrustParticle();
-  } else {
-    ship.vel.mul(0.94);
-    ship.thrust.setLength(0);
+  if (typeof controlarLaNave === "function") {
+    controlarLaNave();
   }
 
-  if (ship.pos.getX() > screenWidth) ship.pos.setX(0);
-  else if (ship.pos.getX() < 0) ship.pos.setX(screenWidth);
-
-  if (ship.pos.getY() > screenHeight) ship.pos.setY(0);
-  else if (ship.pos.getY() < 0) ship.pos.setY(screenHeight);
+  if (typeof agujeroNegro === "function") {
+    agujeroNegro();
+  }
 }
 
 function generateThrustParticle() {
@@ -576,6 +542,22 @@ function updateParticles() {
   }
 }
 
+/* procedimientos para el problema 4 --------------------------------------- */
+
+function posicionEnXDeLaBala(bala) {
+  return bala.pos.getX();
+}
+
+function posicionEnXDeLaBala(bala) {
+  return bala.pos.getY();
+}
+
+function reutlizarBala(bala) {
+  bala.blacklisted = true;
+}
+
+/* punto de aplicacion de la solucion al problema 4 ------------------------ */
+
 function updateBullets() {
   var i = bullets.length - 1;
 
@@ -593,11 +575,9 @@ function updateBullets() {
 
     b.update();
 
-    if (b.pos.getX() > screenWidth) b.blacklisted = true;
-    else if (b.pos.getX() < 0) b.blacklisted = true;
-
-    if (b.pos.getY() > screenHeight) b.blacklisted = true;
-    else if (b.pos.getY() < 0) b.blacklisted = true;
+    if (typeof recargar === "function") {
+      recargar(b);
+    }
   }
 }
 
@@ -651,6 +631,22 @@ function generateAsteroid(x, y, radius, type) {
   asteroidVelFactor += 0.025;
 }
 
+/* procedimientos para el problema 5--------------------------------------- */
+
+function chocaron(a, b) {
+  return checkDistanceCollision(a, b);
+}
+
+function asteroideIEsimo(idAsteroide) {
+  return asteroids[idAsteroide];
+}
+
+function balaIEsima(idBala) {
+  return bullets[idBala];
+}
+
+/* ------------------------------------------------------------------------ */
+
 function checkCollisions() {
   checkBulletAsteroidCollisions();
   checkShipAsteroidCollisions();
@@ -664,13 +660,8 @@ function checkBulletAsteroidCollisions() {
     j = asteroids.length - 1;
 
     for (j; j > -1; --j) {
-      var b = bullets[i];
-      var a = asteroids[j];
-
-      if (checkDistanceCollision(b, a)) {
-        b.blacklisted = true;
-
-        destroyAsteroid(a);
+      if (typeof detectarColisionBalaAsteroide === "function") {
+        detectarColisionBalaAsteroide(i, j);
       }
     }
   }
@@ -929,6 +920,8 @@ function generateShot() {
 function resetGame() {
   asteroidVelFactor = 0;
 
+  /* hace una division por 2 en binario, mas eficiente y hace que 
+  la nave aparezca en el medio de la pantalla */
   ship.pos.setXY(screenWidth >> 1, screenHeight >> 1);
   ship.vel.setXY(0, 0);
 
@@ -942,4 +935,10 @@ function resetAsteroids() {
     var a = asteroids[i];
     a.blacklisted = true;
   }
+}
+
+/* procedimiento para el problema 6 ....................................... */
+function actualizarCartelPuntos() {
+  const cartelPuntos = document.getElementById("cartel-puntos");
+  cartelPuntos.innerHTML = `Puntos hasta el momento: ${points}`;
 }
