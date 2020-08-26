@@ -81,11 +81,11 @@ Para la construcción del juego no estamos utilizando P5, sino JavaScript Puro, 
 
 ## Resuelva
 
-> Siempre utilice los comentario y la identación adecuada.
+> Siempre utilice los comentarios y la identación adecuada.
 
 1. Queremos controlar la nave principal. Para esto tendremos que utilizar los siguientes datos
 
-   - `keyCode`: es un código numérico que se le asigna a cada tecla del teclado para identificarlo y que las aplicaciones puedan detectar cuando y cual tecla fue presionada o soltada.
+   - `keyCode`: es un código numérico que se le asigna a cada tecla del teclado para identificarlo y que las aplicaciones puedan detectar qué tecla fue presionada o soltada.
    - `keyLeft`: es una variable global que debe valer `true` si las teclas [A] o [&larr;] fueron presionadas, y `false` en otros casos
    - `keyRight`: es una variable global que debe valer `true` si las teclas [D] o [&rarr;] fueron presionadas, y `false` en otros casos
    - `keyUp`: es una variable global que debe valer `true` si las teclas [W] o [&uarr;] fueron presionadas, y `false` en otros casos
@@ -111,11 +111,11 @@ Para la construcción del juego no estamos utilizando P5, sino JavaScript Puro, 
    | `K`     | 75     |
    | ESPACIO | 32     |
 
-2. Ahora que ya sabes que variables globales sirven para controlar la nave, tenes que crear el procedimiento `controlarLaNave()` que, obviamente, accione los movimientos de la nave según el valor de `keyUp, keyRight, keyLeft, keySpace`
+2. Ahora que ya sabés que variables globales sirven para controlar la nave, tenés que crear el procedimiento `controlarLaNave()` que, obviamente, accione los movimientos de la nave según el valor de `keyUp, keyRight, keyLeft, keySpace`
 
-   - AYUDA: cuando la variable global `keyUp` valga `true`, que debería hacer la nave? y cuando valga `false`?
+   - AYUDA: cuando la variable global `keyUp` valga `true`: ¿qué debería hacer la nave? ¿y cuando valga `false`?
 
-3. Pero, un momento, la nave se va de la ventana y desaparece de nuestra vista. Esto no puede ser!!! Es importante dar la impresión de que el universo es grande y para eso debemos crear un procedimiento llamado `agujeroNegro()` que:
+3. Pero, un momento, la nave se va de la ventana y desaparece de nuestra vista. ¡¡¡Esto no puede ser!!! Es importante dar la impresión de que el universo es grande y para eso debemos crear un procedimiento llamado `agujeroNegro()` que:
 
    - Cuando la nave desaparezca por la izquierda, reaparezca en el lado derecho.
    - Cuando la nave desaparezca por la derecha, reaparezca en el lado izquierdo.
@@ -131,9 +131,9 @@ Para la construcción del juego no estamos utilizando P5, sino JavaScript Puro, 
 
    - AYUDA: Cual es la posición en el eje `X` de la nave cuando desaparece por el lado derecho? y cuando se desaparece por el lado izquierdo?
 
-4. Una vez que podemos empezar a disparar, lo mas probable es que las balas se agoten o que la memoria ram se nos termine por la cantidad de balas que creamos (nada es gratis). Una solución posible es recargar nuestras municiones con las balas que se van de la ventana, porque después de todo, no se ven. Entonces, hay que crear un procedimiento llamado `recargar(bala)` que reciba por parámetro una bala y dependiendo de su posición, reutilizarla!!!
+4. Una vez que podemos empezar a disparar, lo mas probable es que las balas se agoten o que la memoria ram se nos termine por la cantidad de balas que creamos (nada es gratis). Una solución posible es recargar nuestras municiones con las balas que se van de la ventana, porque después de todo, no se ven. Entonces, hay que crear un procedimiento llamado `recargar(bala)` que reciba por parámetro una bala y dependiendo de su posición, ¡¡¡reutilizarla!!!
 
-5. Bien, ya tenemos balas y tenemos asteroides, ahora nos falta programar las colisiones y sus consecuencias. Para identificar a cada munición y asteroide existente en el juego, se les asigno un numero que funciona como identificador y para cada uno de estos. Pues bien, crear un procedimiento llamado `detectarColisionBalaAsteroide(idBala, idAsteroide)` que recibe como parámetro el identificador de un asteroide y el identificador de una bala en particular. En el caso que que los OBJETOS bala y asteroide correspondientes a esos identificadores hayan chocado…. pues bien, ya podrás imaginar lo que tiene que pasar.
+5. Bien, ya tenemos balas y tenemos asteroides, ahora nos falta programar las colisiones y sus consecuencias. Para identificar a cada munición y asteroide existente en el juego, se les asigno un numero que funciona como identificador y para cada uno de estos. Pues bien, crear un procedimiento llamado `detectarColisionBalaAsteroide(idBala, idAsteroide)` que recibe como parámetro el identificador (número) de un asteroide y el identificador de una bala en particular. En el caso que que los OBJETOS bala y asteroide correspondientes a esos identificadores hayan chocado…. pues bien, ya podrás imaginar lo que tiene que pasar.
 
    - AYUDA: Es necesario crear una variable para almacenar los OBJETOS bala y asteroide, pero debe ser local o global?
 
@@ -143,14 +143,14 @@ Para la construcción del juego no estamos utilizando P5, sino JavaScript Puro, 
 
    - AYUDA: no te olvides de ejecutar la función `actualizarCartelPuntos()`.
 
-7. Veamos si entendimos algunas cosas importantes de este deseafio.
-   - Cual dirias que es la diferencia entre un procedimiento y una función? 
-   - Como hacer para que una funcion y/o procedimiento finalice su ejecución sin haber pasado por todas sus sentencias?
+7. Veamos si entendimos algunas cosas importantes de este deseafío.
+   - ¿Cuál dirías que es la diferencia entre un procedimiento y una función? 
+   - ¿Cómo hacer para que una funcion y/o procedimiento finalice su ejecución sin haber pasado por todas sus sentencias?
 
 
 8. En cuanto a alcance de las variables:
-   - Cual es la diferencia entre variables locales y globales?
-   - Porque es una mala practica crear variables globales?
+   - ¿Cuál es la diferencia entre variables locales y globales?
+   - ¿Por qué es una mala practica crear variables globales?
 
 
 
