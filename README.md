@@ -49,7 +49,7 @@ Por ejemplo, para el TP 3 del grupo 5 sería: 2020-AP3-G05-TP03
 - `respuestas.md`: es un archivo de texto donde tenés que responder los puntos que sólo hacen preguntas y NO piden código.
 - `README.md`: es este archivo que estás viendo, donde está el enunciado. Te recomendamos que NO lo abras desde `repl.it`porque puede hacer que se vea mal, conviene acceder directamente desde el link que te damos en la tarea de Teams.
 - Carpeta `img`: ahí pusimos las imágenes que usa el programa.
-- Carpeta `src`: se encuentra todo el que hasta el momento se desarrollo para el juego. **NO tenés que modificarlo y recordá el consejo que le dió el abuelo a Homero el día de su casamiento.**
+- Carpeta `src`: se encuentra todo lo que hasta el momento se desarrollo para el juego. **NO tenés que modificarlo y recordá el consejo que le dió el abuelo a Homero el día de su casamiento.**
 
 ![](./img/meme-utils.jpg)
 
