@@ -139,7 +139,7 @@ Para la construcción del juego no estamos utilizando P5, sino JavaScript Puro, 
 
    - AYUDA: No te olvides de reutilizar las balas.
 
-6. Por otro lado, cuando finalmente destruimos un asteroide, es importante sumar una cierta cantidad de puntos. Para eso debemos usar una variable global `points` e incrementarla según la cantidad de puntos que consideremos merecer por destruir un asteroide que casi destruye la tierra. 
+6. Por otro lado, cuando finalmente destruimos un asteroide, es importante sumar una cierta cantidad de puntos. Para eso debemos usar una variable global `points` e incrementarla según la cantidad de puntos que consideremos merecer por aniquilar un asteroide que casi destruye la tierra. 
 
    - AYUDA: no te olvides de ejecutar la función `actualizarCartelPuntos()`.
 
