@@ -143,8 +143,14 @@ Para la construcción del juego no estamos utilizando P5, sino JavaScript Puro, 
 
    - AYUDA: no te olvides de ejecutar la función `actualizarCartelPuntos()`.
 
+7. Veamos si entendimos algunas cosas importantes de este deseafio.
+   - Cual dirias que es la diferencia entre un procedimiento y una función? 
+   - Como hacer para que una funcion y/o procedimiento finalice su ejecución sin haber pasado por todas sus sentencias?
 
 
+8. En cuanto a alcance de las variables:
+   - Cual es la diferencia entre variables locales y globales?
+   - Porque es una mala practica crear variables globales?
 
 
 
