@@ -42,3 +42,17 @@ Los nombres de los proyectos tienen que ser así: `xxxx-AP3-Gyy-TPzz`
 Donde `xxxx` corresponde al año, `yy` es el número de grupo y `zz` es el número de TP.
 
 Por ejemplo, para el TP 3 del grupo 5 sería: 2020-AP3-G05-TP03
+
+**No, sólo tenés que trabajar en `main.js` y `respuestas.md`**... pero a continuación te contamos los detalles de cada uno.
+
+- `main.js`: es el archivo de código principal, acá vas a tener que ir resolviendo el código que te pidamos.
+- `respuestas.md`: es un archivo de texto donde tenés que responder los puntos que sólo hacen preguntas y NO piden código.
+- `README.md`: es este archivo que estás viendo, donde está el enunciado. Te recomendamos que NO lo abras desde `repl.it`porque puede hacer que se vea mal, conviene acceder directamente desde el link que te damos en la tarea de Teams.
+- Carpeta `img`: ahí pusimos las imágenes que usa el programa.
+- Carpeta `src`: se encuentra todo el que hasta el momento se desarrollo para el juego. **NO tenés que modificarlo y recordá el consejo que le dió el abuelo a Homero el día de su casamiento.**
+
+![](./img/meme-utils.jpg)
+
+# Herramientas utilizadas
+
+Para la construcción del juego no estamos utilizando P5, sino JavaScript Puro, por lo que gran cantidad de operaciones están resueltas y disponibles para continuar con el desarrollo.
