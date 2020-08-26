@@ -19,3 +19,26 @@ En este desafió usaremos algunos conceptos muy importante para la programación
 
 
 
+## ¿Cómo copio el código para empezar a trabajar?
+
+**A.** Para copiar el código que te damos hecho tenés que ingresar acá https://repl.it/ e iniciar sesión con tu cuenta.
+
+**B.** Si alguno de tus compañeros YA creó el proyecto para trabajar con este TP, solo debés abrirlo y empezar a trabajar.
+
+**CONTINUAR CON LOS PASOS A CONTINUACIÓN SOLO SI NINGÚN COMPAÑERO DE TU GRUPO CREO EL PROYECTO**
+
+**C.** Si estás en este punto es porque ningún compañero de tu grupo creó el proyecto, en ese caso tenés que seguir [este video](https://web.microsoftstream.com/video/b026685c-5f33-457e-a940-67007ddab0b0?st=106). **El link del repositorio que necesitás para esta actividad es: https://github.com/joaquinbf/AP3-AsteroidJS**
+
+**D. No te olvides de invitar a los compañeros de tu grupo**. Para hacer esto debés hacer click en share y buscar los usuarios de sus cuentas, o hacer click en `copy link` y compartírselos.
+
+**E. Compartile el proyecto a tu profesor así lo puede corregir**. Para hacer esto debés hacer click en share y buscar la cuenta de tu profesor. Para **3º B** es **JoaquinBlanco** y para **3º D** es **smschachtner**.
+
+**F.** Por último te pedimos que le **cambies el nombre al proyecto** así están todos ordenados y los podemos encontrar más fácil.
+
+Esto se logra haciendo click en el lápiz que está cerca de tu nombre de usuario en `repl.it` (arriba a la izquierda en la pantalla).
+
+Los nombres de los proyectos tienen que ser así: `xxxx-AP3-Gyy-TPzz`
+
+Donde `xxxx` corresponde al año, `yy` es el número de grupo y `zz` es el número de TP.
+
+Por ejemplo, para el TP 3 del grupo 5 sería: 2020-AP3-G05-TP03
