@@ -137,7 +137,19 @@ Para la construcción del juego no estamos utilizando P5, sino JavaScript Puro, 
 
 5. Bien, ya tenemos balas y tenemos asteroides, ahora nos falta programar las colisiones y sus consecuencias. Para identificar a cada munición y asteroide existente en el juego, se les asigno un numero que funciona como identificador y para cada uno de estos. Pues bien, crear un procedimiento llamado `detectarColisionBalaAsteroide(idBala, idAsteroide)` que recibe como parámetro el identificador (número) de un asteroide y el identificador de una bala en particular. En el caso que los **OBJETOS** bala y asteroide correspondientes a esos identificadores hayan chocado... pues bien, ya podrás imaginar lo que tiene que pasar.
 
-   - AYUDA: Es necesario crear una variable para almacenar los OBJETOS bala y asteroide, pero: ¿debe ser local o global?
+   - ACLARACIÓN: Si estabas atento habrás visto que mencionamos la palabra **OBJETO**. Entender y usar correctamente objetos es muy útil en programación. Por ahora nos alcanza con pensar que cada objeto es un **conjunto de datos** (generalmente más de 1) sobre el cual podemos realizar acciones.  Un ejemplo rápido: la nave es un objeto que tiene entre sus datos su posición en `X` e `Y`, pero además puede hacer algunas acciones como avanzar, disparar, etc.
+
+   - AYUDA: ¿Cómo "creo" un objeto para usarlo? De la misma forma que creas variables, usando `var` o `let`.
+   Ejemplo:
+
+   ```javascript
+   var nave;  //acá pedimos espacio en memoria para guardar una nave como si fuese una variable
+              //(AUNQUE YA SABEMOS QUE GUARDARÁ UN OBJETO)
+   nave = necesitoUnaNavePorFavor();    //la función necesitoUnaNavePorFavor() se encarga de conseguirnos
+                                        //una nave para guardarla en nuestra memoria
+   ```
+
+   - AYUDA: ¿Quién se encarga de darnos un objeto `bala` y un objeto `asteroide`? Para eso te dimos la función  `balaIEsima(idBala)` y `asteroideIEsimo(idAsteroide)`. Recordá que ambas necesitan saber el identificador de la bala o asteroide que estás buscando.
 
    - AYUDA: No te olvides de reutilizar las balas.
 
