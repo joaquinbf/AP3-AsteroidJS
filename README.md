@@ -145,8 +145,8 @@ Para la construcción del juego no estamos utilizando P5, sino JavaScript Puro, 
    ```javascript
    var nave;  //acá pedimos espacio en memoria para guardar una nave como si fuese una variable
               //(AUNQUE YA SABEMOS QUE GUARDARÁ UN OBJETO)
-   nave = necesitoUnaNavePorFavor();    //la función necesitoUnaNavePorFavor() se encarga de conseguirnos
-                                        //una nave para guardarla en nuestra memoria
+   nave = necesitoUnaNavePorFavor();    //la función necesitoUnaNavePorFavor() se encarga de
+                                        //conseguirnos una nave para guardarla en nuestra memoria
    ```
 
    - AYUDA: ¿Quién se encarga de darnos un objeto `bala` y un objeto `asteroide`? Para eso te dimos la función  `balaIEsima(idBala)` y `asteroideIEsimo(idAsteroide)`. Recordá que ambas necesitan saber el identificador de la bala o asteroide que estás buscando.
