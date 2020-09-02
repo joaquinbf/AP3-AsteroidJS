@@ -2,7 +2,7 @@
 
 ## Introducción
 
-Al día de hoy y con los continuos avances en cuanto a desarrollo web, todas la versiones del clásico juego Asteroid han quedado fuera de servicio debido a su falta de mantenimiento y actualización. Ciertamente aparecieron nuevas versiones pero son pagas o con limitaciones para su versión gratuita lo que claramente no es justo ya que se trata de un juego del año 1979, que al día de hoy debería ser de dominio publico. 
+Al día de hoy y con los continuos avances en cuanto a desarrollo web, todas la versiones del clásico juego Asteroid (podés probarlo [acá https://arcade.ly/games/asteroids](https://arcade.ly/games/asteroids/)) han quedado fuera de servicio debido a su falta de mantenimiento y actualización. Ciertamente aparecieron nuevas versiones pero son pagas o con limitaciones para su versión gratuita lo que claramente no es justo ya que se trata de un juego del año 1979, que al día de hoy debería ser de dominio publico. 
 
 Pues bien, queda a nuestro cargo completar la construcción de una versión totalmente libre para quien quiera probarlo.
 
