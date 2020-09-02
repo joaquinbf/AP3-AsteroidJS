@@ -70,7 +70,7 @@ Para la construcción del juego no estamos utilizando P5, sino JavaScript Puro, 
 - Procedimientos y/o funciones para gestionar balas.
   - `posicionEnXDeLaBala(bala)`: recibe una bala y devuelve su posición en el eje `X`.
   - `posicionEnYDeLaBala(bala)`: recibe una bala y devuelve su posición en el eje `Y`.
-  - `reutlizarBala(bala)`: recibe una bala y la deja lista para ser reutilizada por la nave.
+  - `reutilizarBala(bala)`: recibe una bala y la deja lista para ser reutilizada por la nave.
 - Funciones para colisiones.
   - `chocaron(a, b)`: recibe dos OBJETOS (que pueden balas, naves o asteroides) y devuelve `true` si estos colisionaron. 
   - `asteroideIEsimo(idAsteroide)`: recibe el id de un asteroide y devuelve el OBJETO asteroide correspondiente.
@@ -111,11 +111,13 @@ Para la construcción del juego no estamos utilizando P5, sino JavaScript Puro, 
    | `K`     | 75     |
    | ESPACIO | 32     |
 
+   - ACLARACIÓN: en ningún momento mencionamos hacer nada si se presiona con la tecla abajo &darr; porque la nave se frenará sola cuando dejemos de presionar la tecla &uarr;.
+
 2. Ahora que ya sabés que variables globales sirven para controlar la nave, tenés que crear el procedimiento `controlarLaNave()` que, obviamente, accione los movimientos de la nave según el valor de `keyUp, keyRight, keyLeft, keySpace`
 
    - AYUDA: cuando la variable global `keyUp` valga `true`: ¿qué debería hacer la nave? ¿y cuando valga `false`?
 
-3. Pero, un momento, la nave se va de la ventana y desaparece de nuestra vista. ¡¡¡Esto no puede ser!!! Es importante dar la impresión de que el universo es grande y para eso debemos crear un procedimiento llamado `agujeroNegro()` que:
+3. Pero, un momento, la nave se va de la ventana y desaparece de nuestra vista. ¡¡¡Esto no puede ser!!! Es importante dar la impresión de que el universo es grande y para eso debemos crear un procedimiento llamado `agujeroDeGusano()` que:
 
    - Cuando la nave desaparezca por la izquierda, reaparezca en el lado derecho.
    - Cuando la nave desaparezca por la derecha, reaparezca en el lado izquierdo.
@@ -129,21 +131,26 @@ Para la construcción del juego no estamos utilizando P5, sino JavaScript Puro, 
 
    Ahora si, algunas ayudas:
 
-   - AYUDA: Cual es la posición en el eje `X` de la nave cuando desaparece por el lado derecho? y cuando se desaparece por el lado izquierdo?
+   - AYUDA: ¿Cuál es la posición en el eje `X` de la nave cuando desaparece por el lado derecho? y cuando se desaparece por el lado izquierdo?
 
-4. Una vez que podemos empezar a disparar, lo mas probable es que las balas se agoten o que la memoria ram se nos termine por la cantidad de balas que creamos (nada es gratis). Una solución posible es recargar nuestras municiones con las balas que se van de la ventana, porque después de todo, no se ven. Entonces, hay que crear un procedimiento llamado `recargar(bala)` que reciba por parámetro una bala y dependiendo de su posición, ¡¡¡reutilizarla!!!
+4. Una vez que podemos empezar a disparar, lo más probable es que las balas se agoten o que la memoria RAM se nos termine por la cantidad de balas que creamos (nada es gratis). Una solución posible es recargar nuestras municiones con las balas que se van de la ventana, porque después de todo, no se ven. Entonces, hay que crear un procedimiento llamado `recargar(bala)` que reciba por parámetro una bala y dependiendo de su posición, ¡¡¡reutilizarla!!!
 
-5. Bien, ya tenemos balas y tenemos asteroides, ahora nos falta programar las colisiones y sus consecuencias. Para identificar a cada munición y asteroide existente en el juego, se les asigno un numero que funciona como identificador y para cada uno de estos. Pues bien, crear un procedimiento llamado `detectarColisionBalaAsteroide(idBala, idAsteroide)` que recibe como parámetro el identificador (número) de un asteroide y el identificador de una bala en particular. En el caso que que los OBJETOS bala y asteroide correspondientes a esos identificadores hayan chocado…. pues bien, ya podrás imaginar lo que tiene que pasar.
+5. Bien, ya tenemos balas y tenemos asteroides, ahora nos falta programar las colisiones y sus consecuencias. Para identificar a cada munición y asteroide existente en el juego, se les asigno un numero que funciona como identificador y para cada uno de estos. Pues bien, crear un procedimiento llamado `detectarColisionBalaAsteroide(idBala, idAsteroide)` que recibe como parámetro el identificador (número) de un asteroide y el identificador de una bala en particular. En el caso que los **OBJETOS** bala y asteroide correspondientes a esos identificadores hayan chocado... pues bien, ya podrás imaginar lo que tiene que pasar.
 
-   - AYUDA: Es necesario crear una variable para almacenar los OBJETOS bala y asteroide, pero debe ser local o global?
+   - AYUDA: Es necesario crear una variable para almacenar los OBJETOS bala y asteroide, pero: ¿debe ser local o global?
 
    - AYUDA: No te olvides de reutilizar las balas.
 
 6. Por otro lado, cuando finalmente destruimos un asteroide, es importante sumar una cierta cantidad de puntos. Para eso debemos usar una variable global `points` e incrementarla según la cantidad de puntos que consideremos merecer por aniquilar un asteroide que casi destruye la tierra. 
 
+   - AYUDA: la variable `points` ya fue creada, solo debés usarla.
+
    - AYUDA: no te olvides de ejecutar la función `actualizarCartelPuntos()`.
 
-7. Veamos si entendimos algunas cosas importantes de este deseafío.
+   - AYUDA: el mensaje con los puntos aparecerá arriba a la izquierda de tu pantalla.
+
+
+7. Veamos si entendimos algunas cosas importantes de este desafío.
    - ¿Cuál dirías que es la diferencia entre un procedimiento y una función? 
    - ¿Cómo hacer para que una funcion y/o procedimiento finalice su ejecución sin haber pasado por todas sus sentencias?
 

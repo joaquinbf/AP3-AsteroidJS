@@ -495,8 +495,8 @@ function updateShip() {
     controlarLaNave();
   }
 
-  if (typeof agujeroNegro === "function") {
-    agujeroNegro();
+  if (typeof agujeroDeGusano === "function") {
+    agujeroDeGusano();
   }
 }
 
@@ -548,11 +548,11 @@ function posicionEnXDeLaBala(bala) {
   return bala.pos.getX();
 }
 
-function posicionEnXDeLaBala(bala) {
+function posicionEnYDeLaBala(bala) {
   return bala.pos.getY();
 }
 
-function reutlizarBala(bala) {
+function reutilizarBala(bala) {
   bala.blacklisted = true;
 }
 
@@ -643,6 +643,10 @@ function asteroideIEsimo(idAsteroide) {
 
 function balaIEsima(idBala) {
   return bullets[idBala];
+}
+
+function destruirAsteroide(a) {
+  destroyAsteroid(a);
 }
 
 /* ------------------------------------------------------------------------ */
