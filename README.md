@@ -72,9 +72,9 @@ Para la construcción del juego no estamos utilizando P5, sino JavaScript Puro, 
   - `posicionEnYDeLaBala(bala)`: recibe una bala y devuelve su posición en el eje `Y`.
   - `reutilizarBala(bala)`: recibe una bala y la deja lista para ser reutilizada por la nave.
 - Funciones para colisiones.
-  - `chocaron(a, b)`: recibe dos OBJETOS (que pueden balas, naves o asteroides) y devuelve `true` si estos colisionaron. 
-  - `asteroideIEsimo(idAsteroide)`: recibe el id de un asteroide y devuelve el OBJETO asteroide correspondiente.
-  - `balaIEsima(idBala)`: recibe el id de una bala y devuelve el OBJETO bala correspondiente
+  - `chocaron(a, b)`: recibe dos OBJETOS (que pueden balas, naves o asteroides) y devuelve `true` si estos colisionaron y `false` en caso contrario. 
+  - `dameElAsteroideConId(idAsteroide)`: recibe el id de un asteroide y devuelve/retorna el OBJETO asteroide correspondiente.
+  - `dameLaBalaConId(idBala)`: recibe el id de una bala y devuelve/retorna el OBJETO bala correspondiente.
   - `destruirAsteroide(asteroide)`
 - Procedimientos para actualizar los puntos
   - `actualizarCartelPuntos()`
@@ -135,7 +135,7 @@ Para la construcción del juego no estamos utilizando P5, sino JavaScript Puro, 
 
 4. Una vez que podemos empezar a disparar, lo más probable es que las balas se agoten o que la memoria RAM se nos termine por la cantidad de balas que creamos (nada es gratis). Una solución posible es recargar nuestras municiones con las balas que se van de la ventana, porque después de todo, no se ven. Entonces, hay que crear un procedimiento llamado `recargar(bala)` que reciba por parámetro una bala y dependiendo de su posición, ¡¡¡reutilizarla!!!
 
-5. Bien, ya tenemos balas y tenemos asteroides, ahora nos falta programar las colisiones y sus consecuencias. Para identificar a cada munición y asteroide existente en el juego, se les asigno un numero que funciona como identificador y para cada uno de estos. Pues bien, crear un procedimiento llamado `detectarColisionBalaAsteroide(idBala, idAsteroide)` que recibe como parámetro el identificador (número) de un asteroide y el identificador de una bala en particular. En el caso que los **OBJETOS** bala y asteroide correspondientes a esos identificadores hayan chocado... pues bien, ya podrás imaginar lo que tiene que pasar.
+5. Bien, ya tenemos balas y tenemos asteroides, ahora nos falta programar las colisiones y sus consecuencias. Para identificar a cada munición y asteroide existente en el juego, se les asigno un numero que funciona como identificador (como tu número de DNI). Ahora te pedimos que crees un procedimiento llamado `detectarColisionBalaAsteroide(idBala, idAsteroide)` que recibe como parámetro el identificador (número) de un asteroide y el identificador de una bala en particular. En el caso que los **OBJETOS** bala y asteroide correspondientes a esos identificadores hayan chocado... pues bien, ya podrás imaginar lo que tiene que pasar.
 
    - ACLARACIÓN: Si estabas atento habrás visto que mencionamos la palabra **OBJETO**. Entender y usar correctamente objetos es muy útil en programación. Por ahora nos alcanza con pensar que cada objeto es un **conjunto de datos** (generalmente más de 1) sobre el cual podemos realizar acciones.  Un ejemplo rápido: la nave es un objeto que tiene entre sus datos su posición en `X` e `Y`, pero además puede hacer algunas acciones como avanzar, disparar, etc.
 
@@ -148,10 +148,11 @@ Para la construcción del juego no estamos utilizando P5, sino JavaScript Puro, 
    nave = necesitoUnaNavePorFavor();    //la función necesitoUnaNavePorFavor() se encarga de
                                         //conseguirnos una nave para guardarla en nuestra memoria
    ```
+   - AYUDA: ¿Voy a necesitar **crear** un objeto `bala` y un `asteroide`? No, solo vas a tener que pedir espacio en memoria para guardarlos y te damos funciones que se encargan de darte una bala o un asteroide.
 
-   - AYUDA: ¿Quién se encarga de darnos un objeto `bala` y un objeto `asteroide`? Para eso te dimos la función  `balaIEsima(idBala)` y `asteroideIEsimo(idAsteroide)`. Recordá que ambas necesitan saber el identificador de la bala o asteroide que estás buscando.
+   - AYUDA: ¿Quién se encarga de darnos un objeto `bala` y un objeto `asteroide`? Para eso te dimos la función  `dameLaBalaConId(idBala)` y `dameElAsteroideConId(idAsteroide)`. Recordá que ambas necesitan saber el identificador de la bala o asteroide que estás buscando.
 
-   - AYUDA: No te olvides de reutilizar las balas.
+   - AYUDA: No te olvides de reutilizar las balas (como en el punto anterior) cuando hayan chocado con un asteroide.
 
 6. Por otro lado, cuando finalmente destruimos un asteroide, es importante sumar una cierta cantidad de puntos. Para eso debemos usar una variable global `points` e incrementarla según la cantidad de puntos que consideremos merecer por aniquilar un asteroide que casi destruye la tierra. 
 

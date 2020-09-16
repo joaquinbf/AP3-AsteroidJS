@@ -632,7 +632,6 @@ function generateAsteroid(x, y, radius, type) {
 }
 
 /* procedimientos para el problema 5--------------------------------------- */
-
 function chocaron(a, b) {
   return checkDistanceCollision(a, b);
 }
@@ -643,6 +642,16 @@ function asteroideIEsimo(idAsteroide) {
 
 function balaIEsima(idBala) {
   return bullets[idBala];
+}
+
+/* Hacen lo mismo que balaIEsima y asteroideIEsimo, pero se cambio el nombre por
+recomendación de los estudiantes */
+function dameLaBalaConId(idBala) {
+  return balaIEsima(idBala);
+}
+
+function dameElAsteroideConId(idAsteroide) {
+  return asteroideIEsimo(idAsteroide);
 }
 
 function destruirAsteroide(a) {
