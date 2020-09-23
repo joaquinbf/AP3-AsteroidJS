@@ -72,7 +72,7 @@ Para la construcción del juego no estamos utilizando P5, sino JavaScript Puro, 
   - `posicionEnYDeLaBala(bala)`: recibe una bala y devuelve su posición en el eje `Y`.
   - `reutilizarBala(bala)`: recibe una bala y la deja lista para ser reutilizada por la nave.
 - Funciones para colisiones.
-  - `chocaron(a, b)`: recibe dos OBJETOS (que pueden balas, naves o asteroides) y devuelve `true` si estos colisionaron y `false` en caso contrario. 
+  - `chocaron(a, b)`: recibe dos OBJETOS (que pueden ser balas, naves o asteroides) y devuelve `true` si estos colisionaron y `false` en caso contrario. 
   - `dameElAsteroideConId(idAsteroide)`: recibe el id de un asteroide y devuelve/retorna el OBJETO asteroide correspondiente.
   - `dameLaBalaConId(idBala)`: recibe el id de una bala y devuelve/retorna el OBJETO bala correspondiente.
   - `destruirAsteroide(asteroide)`

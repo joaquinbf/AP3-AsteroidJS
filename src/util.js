@@ -939,6 +939,9 @@ function resetGame() {
   ship.vel.setXY(0, 0);
 
   resetAsteroids();
+
+  points = 0;
+  actualizarCartelPuntos();
 }
 
 function resetAsteroids() {
